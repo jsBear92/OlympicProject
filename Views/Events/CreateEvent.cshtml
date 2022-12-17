@@ -1,0 +1,67 @@
+﻿@model OlympicProject.Models.Event
+
+@{
+    ViewData["Title"] = "CreateEvent";
+}
+
+<h1>Create Event</h1>
+
+<h4>Event</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateEvent">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="GameID" class="control-label"></label>
+                <select asp-for="GameID" class ="form-control" asp-items="ViewBag.GameID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="FeatureEvent" class="control-label"></label>
+                <input asp-for="FeatureEvent" class="form-control" />
+                <span asp-validation-for="FeatureEvent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EventVenu" class="control-label"></label>
+                <input asp-for="EventVenu" class="form-control" />
+                <span asp-validation-for="EventVenu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EventDate" class="control-label"></label>
+                <input asp-for="EventDate" class="form-control" />
+                <span asp-validation-for="EventDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EventStartTime" class="control-label"></label>
+                <input asp-for="EventStartTime" class="form-control" />
+                <span asp-validation-for="EventStartTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EventEndTime" class="control-label"></label>
+                <input asp-for="EventEndTime" class="form-control" />
+                <span asp-validation-for="EventEndTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EventDescription" class="control-label"></label>
+                <input asp-for="EventDescription" class="form-control" />
+                <span asp-validation-for="EventDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WorldRecord" class="control-label"></label>
+                <input asp-for="WorldRecord" class="form-control" />
+                <span asp-validation-for="WorldRecord" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<OlympicProject.Models.ViewModels.CountryMedal>
+
+@{ 
+    ViewData["Title"] = "Report";
+
+}
+
+<h2>Report</h2>
+
+<table class="table">
+    <thead>
+        <th>Country</th>
+        <th>Gold</th>
+        <th>Silve</th>
+        <th>Bronze</th>
+        <th>Total Medal</th>
+    </thead>
+    <tbody>
+        <@foreach (OlympicProject.Models.ViewModels.CountryMedal item in Model)
+        {
+            <tr>
+                <td>
+                    @item.CountryName
+                </td>
+                <td>
+                    @item.GoldCount
+                </td>
+                <td>
+                    @item.SilverCount
+                </td>
+                <td>
+                    @item.BronzeCount
+                </td>
+                <td>
+                    @item.TotalCount
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

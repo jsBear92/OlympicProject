@@ -1,0 +1,92 @@
+﻿@model OlympicProject.Models.ViewModels.CompetitorView
+
+@{
+    ViewData["Title"] = "Competitor";
+}
+
+<h1>Create</h1>
+
+<h4>Competitor</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CompetitorSalutation" class="control-label"></label>
+                <input asp-for="CompetitorSalutation" class="form-control" />
+                <span asp-validation-for="CompetitorSalutation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CompetitorName" class="control-label"></label>
+                <input asp-for="CompetitorName" class="form-control" />
+                <span asp-validation-for="CompetitorName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CompetitorDoB" class="control-label"></label>
+                <input asp-for="CompetitorDoB" class="form-control" />
+                <span asp-validation-for="CompetitorDoB" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CompetitorEmail" class="control-label"></label>
+                <input asp-for="CompetitorEmail" class="form-control" />
+                <span asp-validation-for="CompetitorEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CompetitorDescription" class="control-label"></label>
+                <input asp-for="CompetitorDescription" class="form-control" />
+                <span asp-validation-for="CompetitorDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CompetitorCountry" class="control-label"></label>
+                <select asp-for="CompetitorCountry" class="form-control" asp-items="Html.GetEnumSelectList<CountryList>()">
+                    <option>--Select Country--</option>
+                </select>
+                <span asp-validation-for="CompetitorCountry" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CompetitorGender" class="control-label"></label>
+                <select asp-for="CompetitorGender" class="form-control" asp-items="Html.GetEnumSelectList<GenderList>()">
+                    <option>--Select Gender--</option>
+                </select>
+                <span asp-validation-for="CompetitorGender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CompetitorContactNo" class="control-label"></label>
+                <input asp-for="CompetitorContactNo" class="form-control" />
+                <span asp-validation-for="CompetitorContactNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CompetitorWebsite" class="control-label"></label>
+                <input asp-for="CompetitorWebsite" class="form-control" />
+                <span asp-validation-for="CompetitorWebsite" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CompetitorPhoto" class="control-label"></label>
+                <div class="custom-file">
+                    <input asp-for="CompetitorPhoto" class="custom-file-input" id="customFile" />
+                    <label class="custom-file-label" for="customFile">Choose Image...</label>
+                </div>
+                <span asp-validation-for="CompetitorPhoto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        $(".custom-file-input").on("change", function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

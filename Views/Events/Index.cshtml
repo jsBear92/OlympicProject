@@ -1,0 +1,137 @@
+﻿@model OlympicProject.Models.ViewModels.EventIndex
+
+@{
+    ViewData["Title"] = "Events";
+}
+
+<h1>Events</h1>
+
+<p>
+    <a asp-action="CreateEvent">Create New Event</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Game</th>
+            <th>Feature Event</th>
+            <th>Event Venue</th>
+            <th>Event Date</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Description</th>
+            <th>World Record</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Events)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Game.GameName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FeatureEvent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventVenu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventStartTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventEndTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WorldRecord)
+            </td>
+            <td>
+                <a asp-action="DeleteEvent" asp-route-id="@item.EventID">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<h1>Podium</h1>
+
+<p>
+    <a asp-action="CreatePodium">Create New Podium</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Event</th>
+            <th>Competitor</th>
+            <th>Position</th>
+            <th>Medal</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Podia)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Event.FeatureEvent)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Competitor.CompetitorName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompetitorPosition)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompetitorMedal)
+                </td>
+                <td>
+                    <a asp-action="DeletePodium" asp-route-id="@item.EventID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+    
+<h1>Photo</h1>
+
+<p>
+    <a asp-action="CreatePhoto">Create New Photo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Event</th>
+            <th>Photo</th>
+            <th>Photo Tags</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.EventPics)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Event.FeatureEvent)
+                </td>
+                <td>
+                    <img src="~/eventImage/@item.EventPhoto"
+                         class="img-thumbnail"
+                         height="100" width="100"
+                         asp-append-version="true" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EventPhotoTags)
+                </td>
+                <td>
+                    <a asp-action="DeletePhoto" asp-route-id="@item.EventID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

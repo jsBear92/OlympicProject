@@ -1,0 +1,48 @@
+﻿@model OlympicProject.Models.Podium
+
+@{
+    ViewData["Title"] = "CreatePodium";
+}
+
+<h1>Create Podium</h1>
+
+<h4>Podium</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreatePodium">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="EventID" class="control-label"></label>
+                <select asp-for="EventID" class="form-control" asp-items="ViewBag.EventID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="CompetitorID" class="control-label"></label>
+                <select asp-for="CompetitorID" class="form-control" asp-items="ViewBag.CompetitorID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="CompetitorPosition" class="control-label"></label>
+                <input asp-for="CompetitorPosition" class="form-control" />
+                <span asp-validation-for="CompetitorPosition" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CompetitorMedal" class="control-label"></label>
+                <select asp-for="CompetitorMedal" class="form-control" asp-items="Html.GetEnumSelectList<Medal>()">
+                    <option>--Select Medal--</option>
+                </select>
+                <span asp-validation-for="CompetitorMedal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

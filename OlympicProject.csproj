@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20201019075930_InitialCreate.cs" />
+    <Compile Remove="Migrations\20201019075930_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20201019100149_Olympic1.cs" />
+    <Compile Remove="Migrations\20201019100149_Olympic1.Designer.cs" />
+    <Compile Remove="Migrations\20201019111443_Olympic1.cs" />
+    <Compile Remove="Migrations\20201019111443_Olympic1.Designer.cs" />
+    <Compile Remove="Migrations\20201020062451_Olympic1.cs" />
+    <Compile Remove="Migrations\20201020062451_Olympic1.Designer.cs" />
+    <Compile Remove="Migrations\20201023073823_Olympic1.cs" />
+    <Compile Remove="Migrations\20201023073823_Olympic1.Designer.cs" />
+    <Compile Remove="Migrations\20201023082449_Olympic1.cs" />
+    <Compile Remove="Migrations\20201023082449_Olympic1.Designer.cs" />
+    <Compile Remove="Migrations\20201024090603_Olympic1.cs" />
+    <Compile Remove="Migrations\20201024090603_Olympic1.Designer.cs" />
+    <Compile Remove="Migrations\20201024094948_Olympic1.cs" />
+    <Compile Remove="Migrations\20201024094948_Olympic1.Designer.cs" />
+    <Compile Remove="Migrations\20201024183748_Olympic1.cs" />
+    <Compile Remove="Migrations\20201024183748_Olympic1.Designer.cs" />
+    <Compile Remove="Migrations\20201024185329_Olympic1.cs" />
+    <Compile Remove="Migrations\20201024185329_Olympic1.Designer.cs" />
+    <Compile Remove="Migrations\20201025041713_Olympic1.cs" />
+    <Compile Remove="Migrations\20201025041713_Olympic1.Designer.cs" />
+    <Compile Remove="Migrations\20201025080302_Olmpic1.cs" />
+    <Compile Remove="Migrations\20201025080302_Olmpic1.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.9" />
+    <PackageReference Include="microsoft.entityframeworkcore.sqlserver" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.9">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\booklet\" />
+    <Folder Include="wwwroot\competitorImage\" />
+    <Folder Include="wwwroot\eventImage\" />
+  </ItemGroup>
+
+</Project>

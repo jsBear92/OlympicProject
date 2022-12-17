@@ -1,0 +1,92 @@
+﻿@model IEnumerable<OlympicProject.Models.Competitor>
+
+@{
+    ViewData["Title"] = "Index";
+
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CompetitorSalutation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompetitorName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompetitorDoB)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompetitorEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompetitorDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompetitorCountry)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompetitorGender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompetitorContactNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompetitorWebsite)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompetitorPhoto)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompetitorSalutation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompetitorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompetitorDoB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompetitorEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompetitorDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompetitorCountry)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompetitorGender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompetitorContactNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompetitorWebsite)
+            </td>
+            <td>
+                <img src="~/competitorImage/@item.CompetitorPhoto"
+                     class="rounded-circle"
+                     height="40" width="40"
+                     asp-append-version="true" />
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CompetitorID">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@item.CompetitorID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

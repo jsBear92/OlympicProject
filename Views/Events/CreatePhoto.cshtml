@@ -1,0 +1,52 @@
+﻿@model OlympicProject.Models.ViewModels.EventPicView
+
+@{
+    ViewData["Title"] = "CreatePhoto";
+}
+
+<h1>Create Photo</h1>
+
+<h4>Photo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreatePhoto" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="EventID" class="control-label"></label>
+                <select asp-for="EventID" class="form-control" asp-items="ViewBag.EventID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="EventPhoto" class="control-label"></label>
+                <div class="custom-file">
+                    <input asp-for="EventPhoto" class="custom-file-input" id="customFile" />
+                    <label class="custom-file-label" for="customFile">Choose Image...</label>
+                </div>
+                <span asp-validation-for="EventPhoto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EventPhotoTags" class="control-label"></label>
+                <input asp-for="EventPhotoTags" class="form-control" />
+                <span asp-validation-for="EventPhotoTags" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        $(".custom-file-input").on("change", function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
